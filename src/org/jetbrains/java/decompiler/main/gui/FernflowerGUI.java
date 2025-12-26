@@ -32,6 +32,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
+/**
+ * @author CodyEdwin
+ */
 public class FernflowerGUI extends JFrame {
   private static final Color KEYWORD_COLOR = new Color(127, 0, 85);
   private static final Color STRING_COLOR = new Color(42, 0, 255);
