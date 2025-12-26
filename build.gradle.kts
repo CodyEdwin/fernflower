@@ -5,8 +5,8 @@ plugins {
 }
 
 tasks.compileJava {
-  sourceCompatibility = "21"
-  targetCompatibility = "21"
+  sourceCompatibility = "17"
+  targetCompatibility = "17"
 }
 
 sourceSets {
@@ -28,13 +28,22 @@ dependencies {
   testImplementation("org.assertj:assertj-core:3.26.3")
 }
 
-application {
+ application {
   mainClass = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
+ }
+
+tasks.register<CreateStartScripts>("guiStartScripts") {
+  mainClass = "org.jetbrains.java.decompiler.main.gui.FernflowerGUI"
+  applicationName = "fernflower-gui"
+  outputDir = file("build/install/fernflower/bin")
+  classpath = tasks.jar.get().outputs.files
 }
 
-tasks.withType<CreateStartScripts> {
-  applicationName = "fernflower"
+tasks.installDist {
+  dependsOn("guiStartScripts")
 }
+
+
 
 tasks.jar {
   archiveFileName = "fernflower.jar"

@@ -1477,11 +1477,11 @@ public class ClassWriter {
       List<VarType> parameterBounds = bounds.get(i);
       List<TypeAnnotation> firstTypeAnnotations = TargetInfo.TypeParameterBoundTarget.extract(typeAnnotations, i, 0);
       if (parameterBounds.size() > 1 ||
-          (parameterBounds.size() == 1 && !"java/lang/Object".equals(parameterBounds.getFirst().getValue()) ||
+          (parameterBounds.size() == 1 && !"java/lang/Object".equals(parameterBounds.get(0).getValue()) ||
            !firstTypeAnnotations.isEmpty())) {
         buffer.append(" extends ");
         firstTypeAnnotations.forEach(typeAnnotation -> typeAnnotation.writeTo(buffer));
-        buffer.append(ExprProcessor.getCastTypeName(parameterBounds.getFirst(), Collections.emptyList()));
+        buffer.append(ExprProcessor.getCastTypeName(parameterBounds.get(0), Collections.emptyList()));
         for (int j = 1; j < parameterBounds.size(); j++) {
           buffer.append(" & ");
           TargetInfo.TypeParameterBoundTarget.extract(typeAnnotations, i, j).forEach(typeAnnotation -> typeAnnotation.writeTo(buffer));

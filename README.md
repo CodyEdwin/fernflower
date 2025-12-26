@@ -115,7 +115,28 @@ Build an executable start-up script:
 ./gradlew :installDist
 ```
 
-The startup script is generated in `build/install/engine/bin`.
+The startup script is generated in `build/install/fernflower/bin`.
+
+### GUI Usage
+
+Fernflower now includes a Swing-based GUI for easier decompilation:
+
+Run the GUI using:
+
+```console
+./gradlew :installDist
+./build/install/fernflower/bin/fernflower-gui
+```
+
+#### GUI Features
+
+- **Open JAR**: Use File > Open JAR... to select a JAR file for decompilation
+- **Class Tree**: Browse through packages and classes in the left panel
+- **Code Editor**: View decompiled code with syntax highlighting in the right panel
+- **Save to Folder**: Export all decompiled files to a folder structure
+- **Save to ZIP**: Export all decompiled files to a ZIP archive
+
+The GUI supports all the same decompiler options as the command-line version.
 
 ### Contributing
 

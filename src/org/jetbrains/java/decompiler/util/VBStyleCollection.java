@@ -151,6 +151,14 @@ public class VBStyleCollection<E, K> extends ArrayList<E> {
     this.lstKeys = lstKeys;
   }
 
+  public E getFirst() {
+    return super.get(0);
+  }
+
+  public E getLast() {
+    return super.get(super.size() - 1);
+  }
+
   private void addToListIndex(int index, int diff) {
     for (int i = lstKeys.size() - 1; i >= index; i--) {
       K obj = lstKeys.get(i);
