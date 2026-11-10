@@ -39,6 +39,13 @@ tasks.register<CreateStartScripts>("guiStartScripts") {
   classpath = tasks.jar.get().outputs.files
 }
 
+tasks.register<JavaExec>("runGui") {
+  group = "application"
+  description = "Launch the Fernflower Swing GUI."
+  classpath = sourceSets.main.get().runtimeClasspath
+  mainClass.set("org.jetbrains.java.decompiler.main.gui.FernflowerGUI")
+}
+
 tasks.installDist {
   dependsOn("guiStartScripts")
 }

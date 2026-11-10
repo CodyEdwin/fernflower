@@ -119,9 +119,17 @@ The startup script is generated in `build/install/fernflower/bin`.
 
 ### GUI Usage
 
-Fernflower now includes a Swing-based GUI for easier decompilation:
+Fernflower now includes a Swing-based GUI for easier decompilation.
 
-Run the GUI using:
+Launch it with Gradle:
+
+```console
+./gradlew runGui
+```
+
+That runs `org.jetbrains.java.decompiler.main.gui.FernflowerGUI` on the main runtime classpath.
+
+You can also install a start script and run that:
 
 ```console
 ./gradlew :installDist
